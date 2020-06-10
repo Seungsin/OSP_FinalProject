@@ -16,7 +16,7 @@ def index():
 def upload_file():
 	if request.method == 'POST':
 		f=request.files['file']
-		f.save('/home/sinny/Desktop/Final/uploads/'+secure_filename(f.filename))
+		f.save('./uploads/'+secure_filename(f.filename))
 		"""fp=open('txtfile.txt', 'r')
 		lines=fp.readlines()
 		for itr in lines:
