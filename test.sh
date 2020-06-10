@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd
 mkdir OSP_Final
 cd OSP_Final
 mkdir templates

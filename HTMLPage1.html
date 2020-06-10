@@ -1,31 +1,102 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>first_web</title>
     <style>
-        body{
-            background-color:lightgrey
+        body {
+            background: #343d46;
         }
+
+        .box {
+            margin: 100px auto;
+            width: 500px;
+            height: 50px;
+        }
+
+        .container-4 {
+            overflow: hidden;
+            width: 400px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+            .container-4 input#search {
+                width: 400px;
+                height: 60px;
+                background: #2b303b;
+                border: none;
+                font-size: 15pt;
+                float: left;
+                color: #fff;
+                padding-left: 15px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+                .container-4 input#search::-webkit-input-placeholder {
+                    color: #65737e;
+                }
+
+                .container-4 input#search:-moz-placeholder { /* Firefox 18- */
+                    color: #65737e;
+                }
+
+                .container-4 input#search::-moz-placeholder { /* Firefox 19+ */
+                    color: #65737e;
+                }
+
+                .container-4 input#search:-ms-input-placeholder {
+                    color: #65737e;
+                }
+
+            .container-4 button.icon {
+                -webkit-border-top-right-radius: 5px;
+                -webkit-border-bottom-right-radius: 5px;
+                -moz-border-radius-topright: 5px;
+                -moz-border-radius-bottomright: 5px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border: none;
+                background: white;
+                height: 60px;
+                width: 50px;
+                color: #4f5b66;
+                opacity: 0;
+                font-size: 10pt;
+                -webkit-transition: all .55s ease;
+                -moz-transition: all .55s ease;
+                -ms-transition: all .55s ease;
+                -o-transition: all .55s ease;
+                transition: all .55s ease;
+            }
+
+            .container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon {
+                outline: none;
+                opacity: 1;
+                margin-left: -50px;
+            }
+
+                .container-4:hover button.icon:hover {
+                    background: white;
+                }
     </style>
 </head>
-    <body>
-        <form action='[upload_url]' method='post' class='form-horizontal form-insert' enctype='multipart/form-data'>
-            <legend>URL list File Upload</legend>
+<body>
+    <div class="box">
+        <div class="container-4">
+            <form action="./osp_final" method="get">
+                <input name="url" type="text" id="search" placeholder="Search..." />
+                <button name="url_button" class="icon">Click!</button>
+                <input type="submit" />
+            </form>
             </div>
-            <div class='control-group'>
-                <label class='control-label' for='userfile'>Choo File : </label>
-                <div class='controls'>
-                    <input type='file' name='userfile' id='userfile' />
-                </div>
-            </div>
-            <div class='control-group'>
-                <div class='controls'>
-                    <button type='submit' class='btn btn-success'>Upload</button>
-                    <a class='btn btn-back'>Cancel</a>
-                </div>
-            </div>
+        <form enctype="multipart/form-data" action="./osp_final" method="post">
+            <input type="file" name="file" id="ex_file" />
+            <input type="submit" value="Upload" />
         </form>
-    </body>
+    </div>
+</body>
 </html>
