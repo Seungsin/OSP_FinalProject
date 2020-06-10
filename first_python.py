@@ -16,12 +16,10 @@ def index():
 def upload_file():
 	if request.method == 'POST':
 		f=request.files['file']
-		f.save('/home/sinny/Desktop/Final/uploads/'+secure_filename(f.filename))
-		"""fp=open('txtfile.txt', 'r')
-		lines=fp.readlines()
-		for itr in lines:
-			print(itr)"""
-		return "success"
+		f.save('./uploads/'+secure_filename(f.filename))
+		fp=open('./uploads/textfile.txt', 'r')
+		lines=fp.readlines()"""lines is list of url"""
+		return lines[0]
 	else:
 		u=request.args.get('url')
 		return u
