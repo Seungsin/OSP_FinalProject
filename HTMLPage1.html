@@ -83,6 +83,28 @@
                     background: white;
                 }
     </style>
+    <script language="javascript">
+    function keywords(i){
+        var informDoc = document.inform[i-1];
+        window.open("./getKeywords", "key", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=no");
+        
+        informDoc.action="./getKeywords"
+        informDoc.target="key";
+        informDoc.method="get";
+ 
+        informDoc.submit();
+    }
+    function similar(i){
+        var informDoc = document.inform[i-1];
+        window.open("./getSimilar", "sim", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=no");
+        
+        informDoc.action="./getSimilar";
+        informDoc.target="sim";
+        informDoc.method="get";
+
+        informDoc.submit();
+    }
+    </script>
 </head>
 <body>
     <div class="box">
@@ -97,6 +119,17 @@
             <input type="file" name="file" id="ex_file" />
             <input type="submit" value="Upload" />
         </form>
+    </div>
+    <div class="analysislist">
+        {% for url in urls %}
+        <form name="inform" method="get">
+            {{url}}
+            <input type="hidden" value="{{url}}" name="url"/>
+            <input type="button" value="Keyword" onclick="keywords({{loop.index}});"/>
+            <input type="button" value="Similar" onclick="similar({{loop.index}});"/>
+            <br>
+        </form>
+        {% endfor %}
     </div>
 </body>
 </html>
